@@ -10,8 +10,6 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&amp;display=swap">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.standalone.min.css">
     <link rel="stylesheet" href="asset/css/style.css">
 </head>
 
@@ -33,7 +31,8 @@
                 <div
                     class="row bg-white rounded shadow-sm p-2 add-todo-wrapper align-items-center justify-content-center ">
                     <div class="col">
-                        <input id="inpute" class="form-control form-control-lg border-0 add-todo-input bg-transparent rounded"
+                        <input id="inpute"
+                            class="form-control form-control-lg border-0 add-todo-input bg-transparent rounded"
                             type="text" placeholder="یاداشتی را اضافه کنید">
                     </div>
                     <div class="col-auto px-0 mx-0 mr-2">
@@ -49,6 +48,30 @@
             </div>
         </div>
     </div>
+    <!-- modal-edite -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title " id="exampleModalLabel">ویرایش</h5>
+              <button type="button" class="close m-0 p-0" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true" class="fa fa-close text-danger"></span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group text-right">
+                  <label for="recipient-name" class="col-form-label">متن دلخواه</label>
+                  <input type="text" class="form-control" id="recipient-name">
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer justify-content-center">
+              <button type="button" class="btn btn-success">اعمال تغییرات </button>
+            </div>
+          </div>
+        </div>
+      </div>
     <script src="asset/js/app.js">kion()</script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
