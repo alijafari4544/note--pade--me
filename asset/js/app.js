@@ -15,8 +15,7 @@ function eventListener() {
 //add note list
 function addtext(e) {
   const inpute = document.querySelector("#inpute");
-  setLocalstorage(inpute.value);
-  if (inpute.value == "") {
+  if (inpute.value=="") {
     container.innerHTML = `<div class="alert alert-danger alert-dismissible fade show text-right" role="alert">
     <strong>نباید کادر خالی رها شود 
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -25,8 +24,11 @@ function addtext(e) {
   </div>`;
     return;
   }
-  listitem.insertAdjacentHTML("beforeend", cratehtml(inpute.value));
-  inpute.value = "";
+  else{
+    setLocalstorage(inpute.value);
+    listitem.insertAdjacentHTML("beforeend", cratehtml(inpute.value));
+    inpute.value = "";
+  }
 }
 //add to local storage
 function setLocalstorage(note) {
@@ -55,17 +57,13 @@ function loadLocalstorage() {
 //remove item
 function removeItem(e) {
   if (e.target.classList.contains("remove")) {
-    e.target.parentElement.closest(".todo-item").remove();
     let note = document.querySelector("#note").value;
     removeNoteLocalStorage(note);
+    e.target.parentElement.closest(".todo-item").remove();
   }
 }
 // also Remove note from localStorage
-function removeNoteLocalStorage(noteContent) {
-  console.log(noteContent);
-  // delete X from the contetn
-  const noteDelete = noteContent.substring(0, noteContent.length - 1);
-
+function removeNoteLocalStorage(noteDelete) {
   // get notes from localstorage
   const notesFromLS = getLocalstorage();
 
@@ -74,6 +72,7 @@ function removeNoteLocalStorage(noteContent) {
       notesFromLS.splice(index, 1);
     }
   });
+  localStorage.setItem("notes", JSON.stringify(notesFromLS));
 }
 //item add note
 function cratehtml(inpute) {
